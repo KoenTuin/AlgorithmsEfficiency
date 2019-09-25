@@ -1,3 +1,7 @@
+/**
+ * Authors: Koen van der Tuin and Youri Pelicaan
+ */
+
 package model;
 
 import java.util.ArrayList;
