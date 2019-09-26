@@ -6,6 +6,7 @@ package model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 public class ExperimentalNumberList {
@@ -86,15 +87,42 @@ public class ExperimentalNumberList {
 		return true;
 	}
 
-//	public  int[] locationOfLocalMaximum(){
-//
-//		for (int i = 0; i < numberList.length; i--) {
-//			if(numberList[i] > localMax ){
-//
-//				return false;
-//			}
-//		}
-//	}
+
+	public int numberOfLocalMaximum(){
+		int totalLocalMax = 0;
+		int previousMax = 0;
+		for (int i = 0; i < numberList.length; i++) {
+			if (numberList[i] > previousMax){
+				previousMax = numberList[i];
+				totalLocalMax++;
+			}
+		}
+		return totalLocalMax;
+	}
+
+
+	public  int[] locationOfLocalMaximum(){
+		int localMax = 0;
+		int j = 0;
+		int max = numberOfLocalMaximum();
+
+		int[] indexLocalMaximum = new int[max];
+
+
+		for (int i = 0; i < numberList.length; i++) {
+
+			if(numberList[i] > localMax ){
+				indexLocalMaximum[j] = i;
+				localMax = numberList[i];
+				j++;
+			}
+
+		}
+
+		return indexLocalMaximum;
+	}
+
+
 
 	public List<Integer> getNumbersAsList() {
 		List<Integer> resultList = new ArrayList<>();

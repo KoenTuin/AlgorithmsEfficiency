@@ -8,6 +8,8 @@ package controller;
 
 import model.ExperimentalNumberList;
 
+import java.util.Arrays;
+
 public class ExperimentLauncher {
 
 	public static void main(String[] args) {
@@ -27,5 +29,9 @@ public class ExperimentLauncher {
 		System.out.println("G. NOT DONE");
 		//Check local max
 		System.out.println("H. Local max: " + enl.isLocalMaximum(2));
+		//Check location local max
+		System.out.println("I. Index of local max" + Arrays.toString(enl.locationOfLocalMaximum()));
+		//(total)number of local maxima
+		System.out.println("J. Total local max" + enl.numberOfLocalMaximum());
 	}
 }
