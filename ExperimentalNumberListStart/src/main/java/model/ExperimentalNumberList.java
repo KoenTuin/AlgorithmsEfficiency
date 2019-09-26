@@ -4,9 +4,7 @@
 
 package model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ExperimentalNumberList {
 	private int[] numberList;
@@ -41,6 +39,16 @@ public class ExperimentalNumberList {
 	
 	public String toString() {
 		return Arrays.toString(this.numberList);
+	}
+
+	public boolean equalValuesExsist(){
+		ArrayList<Integer> list = (ArrayList<Integer>) this.getNumbersAsList();
+		for (int number : this.getNumbersAsList()) {
+			if(Collections.frequency(list, number) > 1) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 }
