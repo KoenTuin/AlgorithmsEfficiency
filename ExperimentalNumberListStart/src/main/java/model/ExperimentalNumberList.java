@@ -51,4 +51,24 @@ public class ExperimentalNumberList {
 		return false;
 	}
 
+	public static void generateMultipleLists(int hoeveelLists, int hoeveelNummers){
+		//counter
+		int hoeveelGelijk = 0;
+
+		//Create amount of lists entered
+		for (int hoeveelGemaakteLists = 0; hoeveelGemaakteLists < hoeveelLists ; hoeveelGemaakteLists++) {
+			ExperimentalNumberList list = new ExperimentalNumberList(hoeveelNummers);
+			list.generateNumbers(1, 365);
+
+			if (list.equalValuesExsist()){
+				hoeveelGelijk += 1;
+			}
+
+		}
+		System.out.println("\nIn de " + hoeveelLists  + " gemaakte lists waren" +
+				" er " + hoeveelGelijk + " lists met minimaal 1 gelijk nummer.");
+
+
+	}
+
 }
