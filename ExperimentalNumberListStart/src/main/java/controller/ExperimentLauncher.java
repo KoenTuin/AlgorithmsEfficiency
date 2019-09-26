@@ -36,6 +36,11 @@ public class ExperimentLauncher {
 		System.out.println("\nOur conclusion:\nFrom this exercise we can conclude that the birthday paradox is right," +
 				" we see a percentage of 90 to 100 percent from 100 groups of 50.");
 
+
+		System.out.println("******Part 3******");
+
+		ExperimentalNumberList.generateMultipleIncreasingLists(10000,40000);
+
 	}
 
 

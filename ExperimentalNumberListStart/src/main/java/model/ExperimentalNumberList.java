@@ -42,8 +42,13 @@ public class ExperimentalNumberList {
 	}
 
 	public boolean equalValuesExsist(){
+		//create new arraylist
 		ArrayList<Integer> list = (ArrayList<Integer>) this.getNumbersAsList();
+
+		//go through this.getNumbersAsList
 		for (int number : this.getNumbersAsList()) {
+
+			//if number already is in the list return true
 			if(Collections.frequency(list, number) > 1) {
 				return true;
 			}
@@ -60,6 +65,7 @@ public class ExperimentalNumberList {
 			ExperimentalNumberList list = new ExperimentalNumberList(amountOfNumbers);
 			list.generateNumbers(1, 365);
 
+			//if number already is in the list amountOfEquals++
 			if (list.equalValuesExsist()){
 				amountOfEquals += 1;
 			}
@@ -71,4 +77,12 @@ public class ExperimentalNumberList {
 
 	}
 
+	public static void generateMultipleIncreasingLists(int minimum, int maximum) {
+
+		double amountOfNumbers = (minimum + (maximum * 0.25));
+		int amountOfNumbersRound = (int)Math.round(amountOfNumbers);
+
+		generateMultipleLists(20, amountOfNumbersRound);
+
+	}
 }
