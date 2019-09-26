@@ -46,7 +46,7 @@ public class ExperimentalNumberList {
 		ArrayList<Integer> list = (ArrayList<Integer>) this.getNumbersAsList();
 
 		//go through this.getNumbersAsList
-		for (int number : this.getNumbersAsList()) {
+		for (int number : list) {
 
 			//if number already is in the list return true
 			if(Collections.frequency(list, number) > 1) {
@@ -75,6 +75,24 @@ public class ExperimentalNumberList {
 				" were " + amountOfEquals + " lists with at least one duplicate number.");
 
 
+	}
+
+	public int numberOfDifferentValues(){
+
+		//create new arraylist
+		ArrayList<Integer> list = (ArrayList<Integer>) this.getNumbersAsList();
+		int numberOfUniques = 0;
+
+		//go through this.getNumbersAsList
+		for (int number : list) {
+
+			//if number already is in the list don't add
+			if(Collections.frequency(list, number) == 1) {
+				numberOfUniques += 1;
+			}
+		}
+
+		return numberOfUniques;
 	}
 
 	public static void generateMultipleIncreasingLists(int minimum, int maximum) {
