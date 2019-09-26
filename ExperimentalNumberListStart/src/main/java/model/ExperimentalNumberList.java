@@ -4,10 +4,11 @@
 
 package model;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
+
+
+
+import java.util.*;
+
 
 public class ExperimentalNumberList {
 	private int[] numberList;
@@ -136,4 +137,66 @@ public class ExperimentalNumberList {
 		return Arrays.toString(this.numberList);
 	}
 
+	public boolean equalValuesExsist(){
+		//create new arraylist
+		ArrayList<Integer> list = (ArrayList<Integer>) this.getNumbersAsList();
+
+		//go through this.getNumbersAsList
+		for (int number : list) {
+
+			//if number already is in the list return true
+			if(Collections.frequency(list, number) > 1) {
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static void generateMultipleLists(int amountOfLists, int amountOfNumbers){
+		//counter
+		int amountOfEquals = 0;
+
+		//Create amount of lists entered
+		for (int createdLists = 0; createdLists < amountOfLists ; createdLists++) {
+			ExperimentalNumberList list = new ExperimentalNumberList(amountOfNumbers);
+			list.generateNumbers(1, 365);
+
+			//if number already is in the list amountOfEquals++
+			if (list.equalValuesExsist()){
+				amountOfEquals += 1;
+			}
+
+		}
+		System.out.println("\nIn the " + amountOfLists  + " created lists there" +
+				" were " + amountOfEquals + " lists with at least one duplicate number.");
+
+
+	}
+
+	public int numberOfDifferentValues(){
+
+		//create new arraylist
+		ArrayList<Integer> list = (ArrayList<Integer>) this.getNumbersAsList();
+		int numberOfUniques = 0;
+
+		//go through this.getNumbersAsList
+		for (int number : list) {
+
+			//if number already is in the list don't add
+			if(Collections.frequency(list, number) == 1) {
+				numberOfUniques += 1;
+			}
+		}
+
+		return numberOfUniques;
+	}
+
+	public static void generateMultipleIncreasingLists(int minimum, int maximum) {
+
+		double amountOfNumbers = (minimum + (maximum * 0.25));
+		int amountOfNumbersRound = (int)Math.round(amountOfNumbers);
+
+		generateMultipleLists(20, amountOfNumbersRound);
+
+	}
 }
