@@ -29,7 +29,72 @@ public class ExperimentalNumberList {
 			this.numberList[i] = (int) (min + Math.random() * (max - min + 1));
 		}
 	}
-	
+
+	public boolean equalValuesExist(){
+		if(numberList.equals(1)){}
+		return true;
+	}
+
+	public int countPositives(){
+		int positive = 0;
+		for (int i = 0; i < numberList.length; i++) {
+			if(numberList[i] >= 0 ){
+				 positive++;
+			}
+		}
+		return positive;
+	}
+
+	public int sumOfPositives(){
+		int sumOfPositive = 0;
+		for (int i = 0; i < numberList.length; i++) {
+			if(numberList[i] >= 0 ){
+				sumOfPositive += numberList[i];
+			}
+		}
+		return sumOfPositive;
+	}
+
+	public int maxValue(){
+		int highestValue = 0;
+		for (int i = 0; i < numberList.length; i++) {
+			if(numberList[i] >= highestValue ){
+				highestValue = numberList[i];
+			}
+		}
+		return highestValue;
+	}
+
+//	public int numberOfDifferentValues(){
+//		int totalDifferent = 0;
+//		for (int i = 0; i < numberList.length; i++) {
+//			if(numberList[i] >= highestValue ){
+//				highestValue = numberList[i];
+//			}
+//		}
+//		return highestValue;
+//	}
+
+	public boolean isLocalMaximum(int i){
+		int localMax = numberList[i];
+		for (int j = i--; j >= 0; j--) {
+			if(numberList[j] > localMax ){
+
+				return false;
+			}
+		}
+		return true;
+	}
+
+//	public  int[] locationOfLocalMaximum(){
+//
+//		for (int i = 0; i < numberList.length; i--) {
+//			if(numberList[i] > localMax ){
+//
+//				return false;
+//			}
+//		}
+//	}
 
 	public List<Integer> getNumbersAsList() {
 		List<Integer> resultList = new ArrayList<>();
